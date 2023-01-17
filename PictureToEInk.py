@@ -83,8 +83,9 @@ for x in range(image.size[0]):
     for y in range(image.size[1]):
         # get the pixel
         pixel = pixels[x, y]
-        # skip if the pixel is transparent
+        # make transparent pixels white
         if pixel[3] == 0:
+            outPixels[x, y] = (255, 255, 255, 255)
             continue
         # get surrounding pixels
         surroundingPixels = []
