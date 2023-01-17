@@ -57,7 +57,7 @@ for x in range(image.size[0]):
         # get the pixel
         pixel = pixels[x, y]
         # skip if the pixel is transparent
-        if pixel[3] == 0:
+        if len(pixel) == 4 and pixel[3] == 0:
             continue
         # get perceived brightness
         brightness = (pixel[0] * 0.299) + \
@@ -84,7 +84,7 @@ for x in range(image.size[0]):
         # get the pixel
         pixel = pixels[x, y]
         # make transparent pixels white
-        if pixel[3] == 0:
+        if len(pixel) == 4 and pixel[3] == 0:
             outPixels[x, y] = (255, 255, 255, 255)
             continue
         # get surrounding pixels
